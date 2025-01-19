@@ -69,21 +69,16 @@
     </div>
     <div class="row">
       {{ range .process_item }}
-      <div class="col-lg-1 col-md-1 text-center process-number">
-        <span class="h2 text-primary">{{ .number }}</span>
-      </div>
-      <div class="col-lg-1 col-md-1 text-center process-arrow">
-        <i class="fas fa-arrow-right"></i>
-      </div>
-      <div class="col-lg-10 col-md-10 mb-4">
+      <div class="col-lg-12 col-md-12 mb-4">
         <div class="process-item">
           <i class="{{ .icon }} mb-4 text-primary"></i>
-          <h4>{{ .title | markdownify }}</h4>
+          <h4><span class="text-primary">{{ .number }}.</span> {{ .title | markdownify }}</h4>
           <p>{{ .content | markdownify }}</p>
         </div>
       </div>
       {{ end }}
     </div>
+    
     <!-- Process CTA Button -->
     <div class="row mt-5">
       <div class="col-12 text-center">
