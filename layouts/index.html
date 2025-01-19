@@ -41,13 +41,91 @@
       </div>
       {{ end }}
     </div>
+    <div class="row mt-5">
+      <div class="col-12 text-center">
+        {{ if .button.enable }}
+        {{ with .button }}
+        <a href="{{ .link | relURL }}" class="btn btn-primary">{{ .label }}</a>
+        {{ end }}
+        {{ end }}
+      </div>
+    </div>  
   </div>
 </section>
 {{ end }}
 {{ end }}
 <!-- /feature -->
 
+<!-- process -->
+{{ with .Params.process }}
+{{ if .enable }}
+<section class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 text-center">
+        <h2 class="section-title">{{ .title | markdownify }}</h2>
+        <p class="mb-5">{{ .subtitle | markdownify }}</p>
+      </div>
+    </div>
+    <div class="row">
+      {{ range .process_item }}
+      <div class="col-lg-1 col-md-1 text-center process-number">
+        <span class="h2 text-primary">{{ .number }}</span>
+      </div>
+      <div class="col-lg-1 col-md-1 text-center process-arrow">
+        <i class="fas fa-arrow-right"></i>
+      </div>
+      <div class="col-lg-10 col-md-10 mb-4">
+        <div class="process-item">
+          <i class="{{ .icon }} mb-4 text-primary"></i>
+          <h4>{{ .title | markdownify }}</h4>
+          <p>{{ .content | markdownify }}</p>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+    <!-- Process CTA Button -->
+    <div class="row mt-5">
+      <div class="col-12 text-center">
+        {{ if .button.enable }}
+        {{ with .button }}
+        <a href="{{ .link | relURL }}" class="btn btn-primary">{{ .label }}</a>
+        {{ end }}
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}
+<!-- /process -->
 
+<!-- metrics -->
+{{ with .Params.metrics }}
+{{ if .enable }}
+<section class="section bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 text-center">
+        <h2 class="section-title">{{ .title | markdownify }}</h2>
+        <p class="mb-5">{{ .subtitle | markdownify }}</p>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      {{ range .metric_item }}
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="metrics-card text-center">
+          <h3 class="metric-number text-primary mb-2">{{ .number }}</h3>
+          <p class="metric-text mb-0">{{ .text | markdownify }}</p>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}
+<!-- /metrics -->
 
 <!-- service -->
 {{ with .Params.service }}
@@ -116,10 +194,6 @@
 {{ end }}
 {{ end }}
 <!-- /service -->
-
-
-
-
 
 
 <!-- screenshot -->
